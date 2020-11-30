@@ -6,7 +6,7 @@ code to remove audio from MP4, AVI and MOV video files.
 </p>
 
 ## Disclaimer:
-None.
+1. NONE
 
 ## Instructions:
 1. Download the repo as a zip file
