@@ -15,4 +15,4 @@ code to remove audio from MP4, AVI and MOV video files.
 4. Paste in the directory path to the folder where your videos are stored
 5. Save and close noaudio.py
 6. Move noaudio.py into the folder where your videos are stored
-7. Double click to run the programme
+7. Double click to run the program
