@@ -2,30 +2,34 @@ from os import error
 import subprocess
 import os
 
-POSSIBLE_EXTENSIONS = [".avi", ".mp4", "mov"]
+POSSIBLE_EXTENSIONS = ["avi", "mp4", "mov"]
 
-directory = input("Give directory path containing video footage. --->")
+#MAKE SURE DIRECTORY DOES NOT HAVE SPACES
+directory = input("Give directory path containing video footage: ")
 directory = directory.replace("\\", "/")
-print(f"Searching in {directory}.")
+print(f"Searching in {directory}")
 
 if os.path.exists(directory):
     try:
         for files in os.walk(directory):
-            for list in files:
-                for filename in list:
-                    for extension in POSSIBLE_EXTENSIONS:
-                        # Lowercase the filename to make the program case insensitive
-                        if filename.lower().endswith(extension.lower()):
+            for l in files:
+                for filename in l:
+                    if '.' in filename:
+                        ext = filename.split('.')[1]
+                        print(ext)
+                        if ext.lower() in POSSIBLE_EXTENSIONS:
                             noaudio = "noaudio_" + filename
-                            command = 'ffmpeg -i ' + filename + ' -c copy -an ' + noaudio
-                            subprocess.call(command, shell=False)
-                            print('Done removing audio.')
+                            oldpath = os.path.join(directory, filename)
+                            newpath = path = os.path.join(directory, noaudio)
+                            command = 'ffmpeg -i ' + oldpath + ' -c copy -an ' + newpath
+                            subprocess.call(command, shell=True)
+                            print('Removed audio')
 
-        print('Progam exiting...')
+        print('Done, exiting')
 
     except Exception as e:
         print(error, e)
-        print('Progam exiting...')
+        print('Error, exiting')
 
 else:
     print("No video footage found, try again with another directory path.")
