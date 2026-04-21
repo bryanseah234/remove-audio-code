@@ -1,4 +1,4 @@
-# remove-audio-code
+# removeaudio
 code to remove audio from MP4, AVI and MOV video files.
 
 <p align="left">
