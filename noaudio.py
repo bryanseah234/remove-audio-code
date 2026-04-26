@@ -1,35 +1,29 @@
-from os import error
-import subprocess
-import os
+#!/usr/bin/env python3
+"""
+⚠️ DEPRECATED - DO NOT USE ⚠️
 
-POSSIBLE_EXTENSIONS = ["avi", "mp4", "mov"]
+This script has critical security vulnerabilities:
+- Command Injection (CVSS 9.8)
+- Path Traversal
+- Poor Error Handling
 
-#MAKE SURE DIRECTORY DOES NOT HAVE SPACES
-directory = input("Give directory path containing video footage: ")
-directory = directory.replace("\\", "/")
-print(f"Searching in {directory}")
+Please use noaudio_secure.py instead.
 
-if os.path.exists(directory):
-    try:
-        for files in os.walk(directory):
-            for l in files:
-                for filename in l:
-                    if '.' in filename:
-                        ext = filename.split('.')[1]
-                        print(ext)
-                        if ext.lower() in POSSIBLE_EXTENSIONS:
-                            noaudio = "noaudio_" + filename
-                            oldpath = os.path.join(directory, filename)
-                            newpath = path = os.path.join(directory, noaudio)
-                            command = 'ffmpeg -i ' + oldpath + ' -c copy -an ' + newpath
-                            subprocess.call(command, shell=True)
-                            print('Removed audio')
+This file is kept for reference only.
+"""
+import sys
 
-        print('Done, exiting')
-
-    except Exception as e:
-        print(error, e)
-        print('Error, exiting')
-
-else:
-    print("No video footage found, try again with another directory path.")
+print("=" * 70)
+print("⚠️  SECURITY WARNING ⚠️")
+print("=" * 70)
+print()
+print("This script (noaudio.py) has CRITICAL security vulnerabilities:")
+print("  - Command Injection (CVSS 9.8)")
+print("  - Path Traversal")
+print("  - Poor Error Handling")
+print()
+print("Please use noaudio_secure.py instead:")
+print("  python noaudio_secure.py")
+print()
+print("=" * 70)
+sys.exit(1)
