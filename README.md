@@ -1,4 +1,9 @@
 # removeaudio
+
+Live demo: https://hongyime.github.io/removeaudio/
+
+![Project screenshot](./screenshot.png)
+
 > Strip audio tracks from video files (MP4, AVI, MOV) using ffmpeg — secure version
 
 ## What it does
